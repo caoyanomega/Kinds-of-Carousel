@@ -1,1 +1,1 @@
-# Kinds-of-Carousel
+# 各种形式的轮播图,下载试试看哦
