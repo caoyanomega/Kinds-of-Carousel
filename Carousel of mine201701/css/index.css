@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/*开始复制*/
+/*banner容器：需要提供的属性*/
+#bannerContainer {
+    margin: 0 auto;
+    margin-top: 100px;
+    /*position:必须绝对定位*/
+    position: relative;
+    /*宽度和高度自定义--必须提供*/
+    width: 600px;
+    height: 300px;
+    /*overflow必须设置:hidden*/
+    overflow: hidden;
+}
+
+#bannerContainer ul {
+    position: absolute;
+    height: 100%;
+    border:0px;
+}
+
+#bannerContainer ul li {
+    list-style: none;
+    float: left;
+    height: 100%;
+    border:0px;
+}
+
+#bannerContainer ul li a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    border:0px;
+}
+
+#bannerContainer ul li a img {
+    height: 100%;
+    width: 100%;
+    border:0px;
+}
+
+#bannerContainer #imgBanner {
+    height: 100%;
+}
+
+/*设置下面selectBanner属性*/
+#bannerContainer #selectBanner {
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    bottom: 0px;
+}
+#bannerContainer #selectBanner li {
+    border: 1px solid skyblue;
+    box-sizing: border-box;
+}
+#bannerContainer #selectBanner li a {
+    text-decoration: none;
+    background: #000;
+    color:#fff;
+    opacity: 0.5;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: '黑体';
+ }
+
+#bannerContainer #selectBanner li a:hover {
+    text-decoration: none;
+    opacity: 0.8;
+}
+#bannerContainer #selectBanner .now {
+    background: #000;
+    color:#fff;
+    opacity:1.0;
+    font-weight: bold;
+    font-family: '黑体';
+    font-size: 14px;
+}
+
+/*中间左右选择按钮*/
+#bannerContainer #control {
+    display: none;
+}
+
+#bannerContainer #control div {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    margin-top: -20px;
+    background: #000;
+    cursor: pointer;
+    line-height: 40px;
+    text-align: center;
+    font-weight: bold;
+    font-family: '黑体';
+    font-size: 30px;
+    color: #fff;
+    opacity: 0.4;
+    border: 1px solid #fff;
+}
+
+#bannerContainer #control div:hover {
+    opacity: 1.0;
+}
+
+#bannerContainer #control #c_right {
+    right: 5px;
+    left: auto;
+}
+/*结束复制*/

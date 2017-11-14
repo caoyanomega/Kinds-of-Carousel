@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/index.css"/>
+    <title></title>
+    <script>
+        window.onload=function(){
+            mainDrawBanner();
+        }
+    </script>
+</head>
+<body>
+     <!--提供一个容器Start--开始复制-->
+        <div id="bannerContainer">
+        <ul id="imgBanner">
+            <!--只需要提供如下标签即可。自动读取a标签href和img的alt-->
+            <!--下面是使用文字作为选择-->
+            <li><a href="js:;"><img src="./img/1.jpg" alt="这是介绍1"/></a></li>
+            <li><a href="js:;"><img src="./img/2.jpg" alt="这是介绍2"/></a></li>
+            <li><a href="js:;"><img src="./img/3.jpg" alt="这是介绍3"/></a></li>
+            <!-- <li><a href="js:;"><img src="./img/4.jpg" alt="这是介绍4"/></a></li>
+            <li><a href="js:;"><img src="./img/5.jpg" alt="这是介绍5"/></a></li>
+
+
+
+<!--下面是使用图片作为选择：只需将alt清空即可-->
+            <!--<li><a href="js:;"><img src="./img/1.jpg" alt=""/></a></li>
+            <li><a href="js:;"><img src="./img/2.jpg" alt=""/></a></li>
+            <li><a href="js:;"><img src="./img/3.jpg" alt=""/></a></li>-->
+            <li><a href="js:;"><img src="./img/4.jpg" alt=""/></a></li>
+            <li><a href="js:;"><img src="./img/5.jpg" alt=""/></a></li>
+        </ul>
+        <ul id="selectBanner">
+            <!--这里面的标签全部都是js自动生成，这里a标签里面还可以放置图片的哦-->
+        </ul>
+        <div id="control">
+            <div id="c_left"><</div>
+            <div id="c_right">></div>
+        </div>
+    </div>
+<!--结束复制-->
+
+
+
+</body>
+</html>
+<script src="./js/DrawBannner.js"></script>
