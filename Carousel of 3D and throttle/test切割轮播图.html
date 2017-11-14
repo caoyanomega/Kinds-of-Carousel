@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            /*transform-style: preserve-3d;*/
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .father {
+            /*margin:0 auto;*/
+            transform-style: preserve-3d;
+            margin-top: 200px;
+            margin-left: 200px;
+            width: 560px;
+            height: 380px;
+            border: 1px solid black;
+            position: relative;
+            display: flex;
+            /*transition: all 10s;*/
+            transform: rotateX(-20deg) rotateY(-20deg) rotateZ(0deg);
+        }
+
+        /*transform:rotateY先转哪个轴后转哪个轴有着很大的不同，切记。一般不变化的放前面。变化的放后面*/
+        .father div {
+            position: absolute;
+            line-height: 100px;
+            font-size: 100px;
+            font-weight: 900;
+            text-align: center;
+            width: 50px;
+            height: 100px;
+            border: 1px solid black;
+        }
+
+        .father div:nth-child(5) {
+            left: -101px;
+            top: 50%;
+            margin-top: -50px;
+        }
+
+        .father div:nth-child(6) {
+            right: -101px;
+            top: 50%;
+            margin-top: -50px;
+        }
+
+        .father:hover {
+            /*transform: rotateY(-30deg) rotateZ(0deg) rotateX(3600deg);*/
+            /*不信你rotateX放前面和后面区别很大的*/
+        }
+
+        .father ul {
+            transform-style: preserve-3d;
+            list-style: none;
+            position: relative;
+            width: 25%;
+            height: 100%;
+            /*border:1px solid green;*/
+        }
+
+        .father ul:nth-child(1) {
+            background: pink;
+            transition: all 1s 0.1s;
+        }
+
+        .father ul:nth-child(2) {
+            background: skyblue;
+            transition: all 1s 0.2s;
+        }
+
+        .father ul:nth-child(3) {
+            background: yellowgreen;
+            transition: all 1s 0.3s;
+        }
+
+        .father ul:nth-child(4) {
+            background: deeppink;
+            transition: all 1s 0.4s;
+        }
+
+        .father ul li {
+            /*transform-style: preserve-3d;*/
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            /*overflow: hidden;*/
+            /*background: pink;*/
+        }
+
+        .father ul li.first {
+            transform: rotateX(0deg) translateZ(190px);
+            /*background: pink;*/
+            background: url('imgs/01.jpg') no-repeat;
+        }
+
+        .father ul li.second {
+            transform: rotateX(180deg) translateZ(190px);
+            background: url('imgs/02.jpg') no-repeat;
+        }
+
+        .father ul li.third {
+            transform: rotateX(90deg) translateZ(190px);
+            background: url('imgs/03.jpg') no-repeat;
+        }
+
+        .father ul li.fourth {
+            transform: rotateX(-90deg) translateZ(190px);
+            background: url('imgs/04.jpg') no-repeat;
+        }
+
+        .father ul:nth-child(2) > li {
+            background-position: -140px 0;
+        }
+
+        .father ul:nth-child(3) > li {
+            background-position: -280px 0;
+
+        }
+
+        .father ul:nth-child(4) > li {
+            background-position: -420px 0;
+        }
+
+        /*疑问：为什么3d背景颜色没有呢。*/
+    </style>
+    <script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
+    <script>
+        var count = 0;
+        var flag = true;
+        /*给左键添加节流阀*/
+
+        var timer = null;
+        $(function () {
+
+            $("#left").click(function () {
+                if (flag) {
+                    flag = false;/*这一步非常关键*/
+                    /*进来需要先关闭节流阀。关闭节流阀*/
+//                  clearInterval(timer);
+                    /*这里不需要清除计时器。*/
+                    count--;
+                    $("ul").css({
+                        transform: "rotateX(" + count * 90 + "deg)"
+                    });
+                    timer = setInterval(function () {
+                    /*由于定时器和动画基本同时执行,所以需要计时器拖延的事件能够超过动画持续和延迟总时间和*/
+                        flag = true;
+                    }, 1500);/*定时器不清除不会主动更新:计时器的时间间隔和上一个计时器有关*/
+                    /*每次进入函数还是上一个计时器*/
+                }
+            });
+
+
+            $("#right").click(function () {
+                count++;
+                $("ul").css({
+                    transform: "rotateX(" + count * 90 + "deg)"
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div class="father">
+    <ul class="ul">
+        <li class="li first"></li>
+        <li class="li second"></li>
+        <li class="li third"></li>
+        <li class="li fourth"></li>
+    </ul>
+    <ul class="ul">
+        <li class="li first"></li>
+        <li class="li second"></li>
+        <li class="li third"></li>
+        <li class="li fourth"></li>
+    </ul>
+
+    <ul class="ul">
+        <li class="li first"></li>
+        <li class="li second"></li>
+        <li class="li third"></li>
+        <li class="li fourth"></li>
+    </ul>
+    <ul class="ul">
+        <li class="li first"></li>
+        <li class="li second"></li>
+        <li class="li third"></li>
+        <li class="li fourth"></li>
+    </ul>
+    <div id="left">&lt;</div>
+    <div id="right">&gt;</div>
+</div>
+</body>
+</html>
